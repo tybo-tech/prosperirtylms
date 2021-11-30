@@ -1,0 +1,28 @@
+<div class="quick-add">
+  <div class="form">
+
+
+
+    <div class="form-item">
+      <div class="icon">
+        <img *ngIf="recording" src="assets/images/record.gif" alt="">
+
+      </div>
+      <button (click)="startRecording()" style="background: rgb(173, 2, 2);" *ngIf="!recording">Start
+        Recording</button>
+      <button (click)="stopRecording2()" style="background: rgb(17, 17, 17);" *ngIf="recording">Stop Recording</button>
+    </div>
+    <div class="form-item">
+      <audio controls="" *ngIf="url">
+        <source [src]="sanitize(url)" type="audio/wav">
+      </audio>
+    </div>
+
+
+
+
+    <div class="form-item">
+      <button *ngIf="blob" (click)="saveFile()">Save recording</button>
+    </div>
+  </div>
+</div>

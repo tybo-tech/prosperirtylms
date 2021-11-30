@@ -1,0 +1,31 @@
+<div class="container mt-5 p-2" style="background: #fff;">
+  <h4 class="p-1">
+    Discussion
+  </h4>
+  <div class="comments " *ngIf="comments">
+
+
+    <ol class="list-group list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let item of comments">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">{{item.UserName}}</div>
+          {{item.Name}}
+          <div class="date">
+            {{item.CreateDate | date:'medium'}}
+          </div>
+        </div>
+      </li>
+    
+    </ol>
+  
+  </div>
+  <div class="row" *ngIf="comment">
+
+    <div class="input-group mt-3 mb-3">
+      <input type="text" class="form-control" placeholder="Add comment" [(ngModel)]="comment.Name" (keydown.enter)="save()" aria-label="Add comment" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" style="background: #09243F; color: #F2DC8A;" [disabled]="!comment.Name" type="button" (click)="save()" id="button-addon2">Save</button>
+    </div>
+    
+  </div>
+
+</div>

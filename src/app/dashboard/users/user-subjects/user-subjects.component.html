@@ -1,0 +1,31 @@
+<div class="top-bar">
+  <div class="col">
+    <img src="assets/images/back.svg" (click)="back()" alt="">
+  </div>
+
+  <div class="col">
+    <h1 style="text-transform: none;">
+    {{heading}}
+    </h1>
+  </div>
+</div>
+
+<div class="chooses chooses-2">
+  <div class="choose" *ngFor="let item of USER_TABS" [ngClass]="item.Class" (click)="tab(item)">
+    {{item.Name}}
+  </div>
+</div>
+
+<div class="container container-dash" *ngIf="userSubjects" style="padding: 1em;">
+  <div class="chooses chooses-2 chooses-secondary">
+    <div class="choose" *ngFor="let item of USER_SUBJECTS_TABS" [ngClass]="item.Class" (click)="tabSub(item)">
+      {{item.Name}}
+    </div>
+  </div>
+
+  <app-item-list-Widget  [primaryAction]="primaryAction"
+  (deleteEvent)="onDeleteActionEvent($event)" [primaryAction]="primaryAction" [showFilter]="showFilter" [cards]="cards"
+  *ngIf="cards"></app-item-list-Widget>
+
+</div>
+<app-pop [message] = "message" *ngIf="message"></app-pop>

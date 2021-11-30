@@ -1,0 +1,46 @@
+<div *ngIf="question" class="answers">
+
+  <div class="create" *ngIf="QUESTION_TYPES[3].Name != question.QuestionType">
+    <div class="notes">
+      <span> Select the correct answer(s).</span>
+    </div>
+  </div>
+
+
+  <div class="notes" *ngIf="QUESTION_TYPES[3].Name == question.QuestionType">
+
+    <span>Student will write a coorect answer</span>
+  </div>
+
+  <div class="items" *ngIf="QUESTION_TYPES[3].Name != question.QuestionType">
+    <div class="item" *ngFor="let item of question.Answers; let i = index">
+      <!-- <span>{{i+1}}</span> -->
+
+
+      <div class="d-flex justify-content-between" *ngIf="!item.ShowMore">
+        <div class="colcol">
+          <div [innerHtml]="item.Answer">
+          </div>
+        </div>
+        <div class="colcol">
+          <input class="form-check-input" type="checkbox" [disabled]="user.UserType != LEARNER" [(ngModel)]="item.IsSelected"
+          value="" id="flexCheckDefault">
+    
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="items" *ngIf="QUESTION_TYPES[3].Name == question.QuestionType">
+    <div class="form-floating">
+      <textarea class="form-control" [(ngModel)]="question.Answers[0].Answer" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+      <label for="floatingTextarea2">Enter your answer here</label>
+    </div>
+  </div>
+</div>
+
+<!-- <br>
+<button class="btn-primary" (click)="formatBody(0,item)"
+style="background: rgb(72, 236, 57) !important; color: #000 !important; margin: 1em 0;" (click)="add()">Save
+Answer</button> -->

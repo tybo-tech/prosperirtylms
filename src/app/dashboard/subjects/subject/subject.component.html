@@ -1,0 +1,47 @@
+<div class="top-bar">
+  <div class="col">
+    <img src="assets/images/back.svg" (click)="back()" alt="">
+  </div>
+
+  <div class="col">
+    <h1 style="text-transform: none;">
+    {{heading}}
+    </h1>
+  </div>
+</div>
+
+<div class="container container-dash" *ngIf="subject">
+  <!-- <h2>
+    Welcome back to prosperity
+  </h2> -->
+
+  <div class="form-item">
+    <label for="">Name*</label>
+    <input type="text" [(ngModel)]="subject.Name" placeholder="Name here">
+  </div>
+
+  <div class="form-item">
+    <label for="">Pass Mark*</label>
+    <input type="text" [(ngModel)]="subject.PassMark" placeholder="Name here">
+  </div>
+
+
+  <div class="form-item">
+    <label for="">Notes</label>
+    <textarea [(ngModel)]="subject.Description" placeholder="Notes"></textarea>
+  </div>
+
+ 
+
+ 
+
+  <div class="form-item">
+    <button (click)="save()" [disabled] ="!subject.Name" >Save subject</button>
+
+    <p class="error" *ngIf="error">
+      {{error}}
+    </p>
+  </div>
+
+</div>
+<app-pop [message] = "message" *ngIf="message"></app-pop>

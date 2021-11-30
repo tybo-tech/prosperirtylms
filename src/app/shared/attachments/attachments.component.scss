@@ -1,0 +1,22 @@
+.atttt {
+  padding: 1em;
+  margin: 2em 0;
+  border: 1px dotted rgb(202, 202, 202);
+  width: fit-content;
+  border-radius: .5em;
+  min-width: 15em;
+}
+
+.files {
+  padding: 1em 0;
+
+  .badge {
+    margin-bottom: .75em;
+    font-weight: 400;
+    display: block;
+    text-align: left;
+    a{
+        color: #fff;
+    }
+  }
+}

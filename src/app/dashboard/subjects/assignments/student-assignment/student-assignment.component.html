@@ -1,0 +1,79 @@
+<div class="container" *ngIf="assignment">
+  <article class="blog-post">
+    <h2 class="blog-post-title">{{assignment.Tittle}} {{assignment.AssignmentType}}</h2>
+    <p class="blog-post-meta">{{assignment.CreateDate | date}}, by <a href="#">Mark</a></p>
+
+    <p class="mb-3">
+      {{assignment.Instructions}}
+    </p>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            Writing a {{assignment.AssignmentType}} as..
+          </div>
+          <h4 class="card-header">{{user.Name}} {{user.Surname}}</h4>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            Number of attempts allowed {{assignment.NumberOfAttempts}}
+          </div>
+          <h4 class="card-header">Attempt: {{attemptNumber}}</h4>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <app-attachments *ngIf="assignment.Images" [files]="assignment.Images" [user] ="user" [otherId] = "assignment.AssignmentId"></app-attachments>
+
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <!-- <h3 class="blog-post-title">Questions</h3> -->
+
+
+    <div class="row" *ngIf="!reachedAllowedAttacmpts">
+      <div class="col-md-8">
+        <div class="card" *ngFor="let question of assignment.Questions; let i = index">
+          <h4 class="card-header">Question {{1+i}}</h4>
+          <div class="card-body">
+            <div class="" [innerHtml]="question.QuestionView"></div>
+          </div>
+
+          <div class="card-footer">
+            <app-student-answer [question]="question" (doneSaveAnswer)="onDoneSaveAnswer($event)"></app-student-answer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="action" *ngIf="!reachedAllowedAttacmpts">
+      <!-- <app-attachments *ngIf="assignment && assignment.RequireAttachment == 'Yes' && studentAssignment" [canUpload]="canUpload" [files]="studentAssignment.Images" [user] ="user" [otherId] = "assignment.AssignmentId"></app-attachments> -->
+      <button class="btn btn-primary" (click)="submit()">Submit {{assignment.AssignmentType}}</button>
+    </div>
+  </article>
+
+</div>
+<p-toast position="top-right"></p-toast>
+
+
+<p-dialog [header]="modalHeader" [(visible)]="displayModal" [modal]="true" [styleClass]="modal" [draggable]="false"
+  [resizable]="false">
+  <p class="p-m-0">
+    {{modalBody}}
+  </p>
+  <ng-template pTemplate="footer">
+    <button class="btn btn-dark" (click)="displayModal=false; back()">Ok</button>
+  </ng-template>
+</p-dialog>

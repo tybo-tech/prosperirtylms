@@ -1,0 +1,89 @@
+@import '../../../assets/styles/colors';
+
+.nav-container {
+  background: $primary;
+  padding: .5em 1em;
+  border-bottom: 1px solid $cloud;
+
+
+
+  .navbar-brand {
+    img {
+      width: 12em;
+
+      @media only screen and (max-width: 600px) {
+
+        width: 8em;
+      }
+    }
+  }
+
+  .navbar {
+    ul {
+      li {
+        a {
+          padding: 0 1em;
+          font-size: .999em;
+
+          &:hover {
+            color: $pop;
+          }
+        }
+
+        button {
+          margin: 0 !important;
+          padding: 0;
+          background: $white;
+          color: $primary;
+          font-size: .8em;
+          padding: .2em 1em !important;
+          border-radius: .5em;
+        }
+      }
+    }
+  }
+
+  .active-link {
+    color: $pop !important;
+    font-weight: 600;
+    // border-bottom: 2px solid $pop;
+  }
+
+  // .nav {
+  //   display: grid;
+  //   grid-template-columns: 25%  28% auto;
+  //   max-width: $max-width;
+  //   margin: 0 auto;
+
+  //   .logo {
+  //     img {
+  //       width: 100%;
+  //     }
+  //   }
+
+  //   .nav-items{
+  //       display: grid;
+  //       grid-template-columns: repeat(6, 16.6%);
+  //       .item{
+  //           padding: .5em 0;
+  //           text-align: center;
+  //           a{
+  //               color: $white;
+  //               font-weight: 300;
+  //           }
+  //           .active-link{
+  //             color: $pop;
+  //             font-weight: 700;
+  //           }
+
+  //           button{
+  //             margin: 0 1em;
+  //             background: $white;
+  //             color: $primary;
+  //             padding: .5em;
+  //           }
+  //       }
+  //   }
+
+  // }
+}

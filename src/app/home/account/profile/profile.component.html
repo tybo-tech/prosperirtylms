@@ -1,0 +1,67 @@
+<div class="top-bar">
+  <div class="col">
+    <img src="assets/images/back.svg" (click)="back()" alt="">
+  </div>
+
+  <div class="col">
+    <h1 style="text-transform: none;">
+    {{heading}}
+    </h1>
+  </div>
+</div>
+
+<!-- <div class="chooses chooses-2">
+  <div class="choose" *ngFor="let item of USER_TABS" [ngClass]="item.Class" (click)="tab(item)">
+    {{item.Name}}
+  </div>
+</div> -->
+
+<div class="container container-dash" *ngIf="selectedUser">
+  <!-- <h2>
+    Welcome back to prosperity
+  </h2> -->
+
+  <div class="form-item">
+    <label for="">Name*</label>
+    <input type="text" [(ngModel)]="selectedUser.Name" placeholder="Name here">
+  </div>
+
+  
+  <div class="form-item">
+    <label for="">Surname*</label>
+    <input type="text" [(ngModel)]="selectedUser.Surname" placeholder="Surname here">
+  </div>
+
+  <div class="form-item">
+    <label for="">Email*</label>
+    <input type="email" [(ngModel)]="selectedUser.Email" placeholder="abc@xyz.com">
+  </div>
+
+
+  <div class="form-item">
+    <label for="">Phone Number*</label>
+    <input type="text" [(ngModel)]="selectedUser.PhoneNumber" placeholder="000 0000 000">
+  </div>
+
+ 
+
+  <div class="form-item">
+    <button (click)="save()" [disabled] ="!selectedUser.Name || !selectedUser.Email || !selectedUser.Surname" >Save details</button>
+
+    <p class="error" *ngIf="error">
+      {{error}}
+    </p>
+  </div>
+
+</div>
+<app-pop [message] = "message" *ngIf="message"></app-pop>
+
+<!-- 
+<div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div> -->

@@ -1,0 +1,9 @@
+<div class="modal" *ngIf="message">
+  <div class="card">
+    <h3>
+     {{message}}
+    </h3>
+
+    <button (click)="message =  null">Continue</button>
+  </div>
+</div>

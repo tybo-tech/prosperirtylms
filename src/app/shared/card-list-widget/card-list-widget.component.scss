@@ -1,0 +1,33 @@
+@import '../../../assets/styles/colors';
+
+.cards {
+  .card {
+    text-align: center;
+    border: 2px solid $cloud;
+    padding: 2em 1em;
+    border-radius: .5em;
+    cursor: pointer;
+    background: $white;
+
+    img {
+      width: 3em;
+      margin: 0 auto;
+    }
+
+    h5 {
+      font-weight: 500;
+      padding: .5em;
+      font-size: 1em;
+
+      span {
+        display: block;
+        font-size: .8em;
+      }
+    }
+
+    a {
+      margin: 1em 0;
+      margin-right: 2em;
+    }
+  }
+}

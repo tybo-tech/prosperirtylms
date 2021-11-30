@@ -1,0 +1,54 @@
+@import '../../../assets/styles/colors';
+
+.cards {
+
+  grid-gap: 2em;
+  max-width: $max-width;
+  margin: 1em auto;
+  padding: .5em;
+  // background: $white;
+  border-radius: .5em;
+  max-width: 60em;
+
+}
+
+.top-bar,
+.search {
+  // margin: 1em auto;
+  display: grid;
+  grid-template-columns: 10em auto;
+  max-width: 60em;
+  padding: 2em 0;
+
+
+  h1 {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+}
+
+.search {
+  padding: 1em 0;
+  grid-template-columns: 80% auto;
+
+  input {
+
+    // height: 3em;
+
+    width: 90%;
+  }
+
+  button {
+    margin: 0;
+    // padding: 1em !important;
+  }
+
+}

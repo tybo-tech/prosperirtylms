@@ -1,0 +1,17 @@
+<app-item-list-Widget [heading]="heading" [backto]="backto" (primaryActionEvent)="onPrimaryActionEvent($event)"
+  (deleteEvent)="onDeleteActionEvent($event)" [primaryAction]="primaryAction" [showFilter]="showFilter" [cards]="cards"
+  *ngIf="cards"></app-item-list-Widget>
+
+
+<div class="modal" *ngIf="selectedGrade">
+  <div class="card">
+    <h3>
+      Are you sure you want to delete this grade?
+    </h3>
+
+    <button (click)="selectedGrade =  null">Do not delete</button>
+    <button class="yes" (click)="delete(selectedGrade)">Yes delete grade</button>
+  </div>
+</div>
+
+<app-pop [message]="message" *ngIf="message"></app-pop>

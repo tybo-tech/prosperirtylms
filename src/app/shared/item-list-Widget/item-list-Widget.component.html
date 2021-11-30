@@ -1,0 +1,56 @@
+<div class="cards" *ngIf="cards">
+
+  <div class="search" *ngIf="showFilter">
+    <input type="search "  class="form-control" [(ngModel)]="searchString" placeholder="🔎 Filter by name">
+    <button class="btn btn-primary" *ngIf="primaryAction && user && user.UserType !== ROLES[2].Name"
+      (click)="primaryActionClicked()"> Add </button>
+  </div>
+
+  <div class="card"  *ngFor="let card of cards | sliderwidgetpipe: searchString;">
+    <div class="card-body">
+      <h5 class="card-title"> {{card.Name}}</h5>
+      <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+      <p class="card-text" *ngIf="card.Description">{{card.Description}}</p>
+      <p class="card-text" *ngIf="card.CreateDate">{{card.CreateDate | date}}</p>
+
+      <span *ngIf="user && user.UserType !== ROLES[2].Name">
+        <a  class="card-link" (click)="goto(card.Url)">Edit</a>
+        <a  class="card-link link-danger" (click)="deleteClicked(card)">Delete</a>
+      </span>
+
+      <span *ngIf="user && user.UserType === ROLES[2].Name">
+        <a  class="card-link" (click)="goto(card.Url)">Read</a>
+      </span>
+    
+    </div>
+  </div>
+  <!-- <div class="card" *ngFor="let card of cards | sliderwidgetpipe: searchString;">
+
+    <div class="col">
+      <img [src]="card.Icon" alt="">
+    </div>
+
+    <div class="col">
+      <h2>
+        {{card.Name}}
+      </h2>
+      <p *ngIf="card.Description">
+        {{card.Description}}
+      </p>
+      <p *ngIf="card.CreateDate">
+        {{card.CreateDate | date}}
+      </p>
+    </div>
+
+    <div class="col actions" *ngIf="user && user.UserType !== ROLES[2].Name">
+      <a class="link link-info" (click)="goto(card.Url)">Edit</a>
+      <a class="link link-danger" (click)="deleteClicked(card)">Delete</a>
+    </div>
+
+
+    <div class="col actions" *ngIf="user && user.UserType === ROLES[2].Name">
+      <a class="link link-info" (click)="goto(card.Url)">Read</a>
+
+    </div>
+  </div> -->
+</div>

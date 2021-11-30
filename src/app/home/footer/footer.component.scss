@@ -1,0 +1,11 @@
+@import '../../../assets/styles/colors';
+.footer{
+    background: $primary;
+    padding: 2em;
+    text-align: center;
+    a{
+        color: $white;
+        font-size: .6em;
+        padding: .2em 1em;
+    }
+}

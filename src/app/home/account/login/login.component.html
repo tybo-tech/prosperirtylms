@@ -1,0 +1,51 @@
+<app-banner-widget [heading]="'Login to your account.'"></app-banner-widget>
+
+<div class="container">
+  <h2>
+    Welcome back to prosperity
+  </h2>
+
+  <!-- <div class="form-item">
+    <label for="">Your User Name*</label>
+    <input type="email" [(ngModel)]="email" placeholder="Full names">
+  </div>
+
+  <div class="form-item">
+    <label for="">Your Password*</label>
+    <input type="password" [(ngModel)]="password" placeholder="Full names">
+  </div> -->
+
+
+  <div class="card" style="max-width: 30em; margin: .5em auto;">
+    <div class="card-body">
+     
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control"  [(ngModel)]="email" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" [(ngModel)]="password" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+
+     <br><br>
+     <div class="action">
+      <button (click)="login()" class="btn btn-primary">Login</button>
+  
+      <p class="error" *ngIf="error">
+        {{error}}
+      </p>
+  
+  <p>
+    New to prosperity? <a routerLink="/sign-up">Sign up</a>
+  
+  </p>
+    </div>
+    </div>
+  </div>
+
+
+  <br>
+
+</div>

@@ -1,0 +1,68 @@
+<div *ngIf="question" class="answers">
+
+  <div class="create" *ngIf="QUESTION_TYPES[3].Name != question.QuestionType">
+    <div class="action">
+      <button class="btn-primary" (click)="add()">Add Answer</button>
+    </div>
+
+    <div class="notes">
+      <span>Add answers</span>
+      <span> Select the correct answer(s).</span>
+    </div>
+  </div>
+
+
+  <div class="notes" *ngIf="QUESTION_TYPES[3].Name == question.QuestionType">
+
+    <span>Student will write a coorect answer</span>
+  </div>
+
+  <div class="items">
+    <div class="item" *ngFor="let item of question.Answers; let i = index">
+      <!-- <span>{{i+1}}</span> -->
+ 
+
+      <div class="row" *ngIf="!item.ShowMore">
+        <div class="col-6 col-md-4">
+          <div [innerHtml]="item.Answer">
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <p>
+            {{item.IsCoorect}}
+          </p>
+        </div>
+        <div class="col-6 col-md-4">
+          <a class="link" (click)="item.ShowMore=true">
+            Edit
+          </a>
+
+          <a class="link link-danger" (click)="delete(item)">
+            Delete
+          </a>
+        </div>
+      </div>
+
+      <div class="form" *ngIf="item.ShowMore">
+        <quill-editor [styles]="editorStyle" [modules]="editorConfig" [(ngModel)]="item.Answer">
+        </quill-editor>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="item.IsCoorect"
+            [checked]="item.IsCoorect == 'Correct answer.'" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Mark as the correct answer
+          </label>
+        </div>
+        <button class="btn-primary" (click)="formatBody(0,item)"
+          style="background: rgb(72, 236, 57) !important; color: #000 !important; margin: 1em 0;" (click)="add()">Save
+          Answer</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <pre>
+  {{question | json}}
+ </pre> -->
+</div>

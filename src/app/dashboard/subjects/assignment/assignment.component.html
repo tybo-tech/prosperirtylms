@@ -1,0 +1,186 @@
+<div class="container mt-5 p-2" *ngIf="user && assignment">
+
+
+  <div class="" *ngIf="user.UserType === TEACHER">
+
+    <div class="card">
+      <div class="card-body" *ngIf="!assignment.ShowMore">
+        <h5 class="card-title"> {{assignment.Tittle}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted" *ngIf="assignment.DueDate">
+          Due date:
+          {{assignment.DueDate | date:'mediumDate'}}
+          <span *ngIf="assignment.DueTime">, <i class="far fa-clock"></i> {{assignment.DueTime}} </span>
+        </h6>
+        <h6 class="card-subtitle mb-2 text-muted" *ngIf="!assignment.DueDate">No due date set</h6>
+        <app-attachments *ngIf="assignment.Images" [canUpload]="canUpload" [files]="assignment.Images" [user] ="user" [otherId] = "assignment.AssignmentId"></app-attachments>
+        <p class="card-text"> {{assignment.Instructions}}</p>
+        <a (click)="back()" class="card-link">Back</a>
+        <a (click)="assignment.ShowMore = true" class="card-link">Edit {{assignment.AssignmentType}}</a>
+      </div>
+
+      <div class="card-body" *ngIf="assignment.ShowMore">
+
+        <br>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" [(ngModel)]="assignment.Tittle">
+          <label for="floatingInput">{{assignment.AssignmentType}} title</label>
+        </div>
+        <br>
+
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="floatingInput" [(ngModel)]="assignment.DueDate">
+          <label for="floatingInput">Due Date</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="time" class="form-control" id="floatingInput" [(ngModel)]="assignment.DueTime">
+          <label for="floatingInput">Due Time</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <textarea type="date" class="form-control" id="floatingInput"
+            [(ngModel)]="assignment.Instructions"></textarea>
+          <label for="floatingInput">Instructions</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="tel" class="form-control" id="floatingInput" [(ngModel)]="assignment.NumberOfAttempts">
+          <label for="floatingInput">Number Of Attempts Allowed</label>
+        </div>
+
+
+        <div class="form-floating mb-3">
+          <select type="tel" class="form-control" id="floatingInput" [(ngModel)]="assignment.ScoreAttempt">
+            <option [value]="item.Name" *ngFor="let item of SCORE_ATTEMPT_OPTIONS">{{item.Name}}</option>
+          </select>
+          <label for="floatingInput">Attempt Marks</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select type="tel" class="form-control" id="floatingInput" [(ngModel)]="assignment.RequireAttachment">
+            <option [value]="item.Name" *ngFor="let item of YES_NO_OPTIONS">{{item.Name}}</option>
+          </select>
+          <label for="floatingInput">Require Attachment</label>
+        </div>
+
+        <br>
+
+        <a (click)="assignment.ShowMore = false" class="card-link">Cancel edit</a>
+        <a (click)="assignment.ShowMore = false" class="btn btn-light">Attach files <i class="fas fa-paperclip"></i></a>
+        <a (click)="assignment.ShowMore = true" (click)="saveAssignment(assignment)" class="btn btn-primary">Save</a>
+
+      </div>
+    </div>
+    <h6 class="p-1 mt-5">
+      Questions
+    </h6>
+
+    <div class="add" *ngIf="selectedQuestion">
+      <quill-editor [styles]="editorStyle" [modules]="editorConfig" [(ngModel)]="selectedQuestion.Question">
+      </quill-editor>
+
+
+      <div class="form-floating">
+        <select class="typedrop" [(ngModel)]="selectedQuestion.QuestionType" (change)="typeChanged(selectedQuestion)"
+          class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option *ngFor="let item of QUESTION_TYPES" [value]="item.Name">{{item.Name}}</option>
+        </select>
+        <label for="floatingSelect">Question Type</label>
+      </div>
+
+
+      <br>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="selectedQuestion.Score"
+          placeholder="name@example.com">
+        <label for="floatingInput">Question marks</label>
+      </div>
+
+
+
+      <button (click)="formatBody(0,selectedQuestion)" class="btn btn-primary"
+        [disabled]="!selectedQuestion.Question">Save
+        question</button>
+
+
+    </div>
+
+    <button (click)="add()" *ngIf="!selectedQuestion" class="btn btn-primary">Add question</button>
+
+    <div class="comments">
+
+
+      <div class="questions">
+        <div class="question" *ngFor="let question of assignment.Questions; let i = index">
+          <div class="ms-2 me-auto">
+            <div class="">
+              <span style=" opacity: .5;">{{'Q'+(1+i)}})</span>
+            </div>
+            <div>
+              <div class="">
+                <div *ngIf="!question.ShowMore" [innerHtml]="question.QuestionView"></div>
+
+                <quill-editor [styles]="editorStyle" *ngIf="question.ShowMore" [modules]="editorConfig"
+                  [(ngModel)]="question.Question">
+                </quill-editor>
+
+
+                <div class="form-floating">
+                  <select [disabled]="!question.ShowMore" class="typedrop" [(ngModel)]="question.QuestionType"
+                    (change)="typeChanged(question)" class="form-select" id="floatingSelect"
+                    aria-label="Floating label select example">
+                    <option *ngFor="let item of QUESTION_TYPES" [value]="item.Name">{{item.Name}}</option>
+                  </select>
+                  <label for="floatingSelect">Question Type</label>
+                </div>
+
+
+                <br>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" [disabled]="!question.ShowMore" id="floatingInput"
+                    [(ngModel)]="question.Score" placeholder="name@example.com">
+                  <label for="floatingInput">Question marks</label>
+                </div>
+
+
+
+                <div class="show-more" *ngIf="!question.ShowMore">
+                  <div class="actions" *ngIf="user.UserType === ROLES[1].Name" style="grid-template-columns: 50% auto;">
+                    <button class="tertiary" (click)="view(question)">More details</button>
+                  </div>
+
+                </div>
+
+
+                <div class="show-more" *ngIf="question.ShowMore">
+                  <div class="actions" *ngIf="user.UserType === ROLES[1].Name">
+                    <button class="tertiary" (click)="hide(question)">Less details</button>
+                    <button (click)="formatBody(0,question)" class="btn btn-primary"
+                      [disabled]="!question.Question">Save
+                      question</button>
+                    <!-- <button (click)="saveQuestion(question)" [disabled]="!question.Question">Save question</button> -->
+                  </div>
+
+                </div>
+
+                <app-answers [question]="question" (doneSaveAnswer)="onDoneSaveAnswer($event)"></app-answers>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="" *ngIf="user.UserType === LEARNER">
+    <app-student-assignment *ngIf="assignment" [assignment]="assignment" [user]="user"></app-student-assignment>
+  </div>
+</div>
+
+<p-toast position="top-right"></p-toast>

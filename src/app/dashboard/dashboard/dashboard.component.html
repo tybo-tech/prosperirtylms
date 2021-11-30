@@ -1,0 +1,10 @@
+
+<h2>
+    <span>
+        Hi {{user?.Name}}
+    </span>
+    Welcome to {{user?.Company?.Name}}
+</h2>
+<!-- <app-activity-feed></app-activity-feed> -->
+<app-card-list-widget [cards]="cards" *ngIf="cards"></app-card-list-widget>
+

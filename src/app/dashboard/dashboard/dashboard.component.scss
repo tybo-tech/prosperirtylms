@@ -1,0 +1,14 @@
+@import '../../../assets/styles/colors';
+
+h2{
+    width: 100%;
+    max-width: $max-width;
+    margin: 1em auto;
+    text-align: center;
+    padding: 1em;
+    font-size: 1em;
+    span{
+        display: block;
+        font-weight: 400;
+    }
+}

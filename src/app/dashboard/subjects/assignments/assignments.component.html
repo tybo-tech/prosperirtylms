@@ -1,0 +1,125 @@
+<div class="container" *ngIf="assignments">
+  <article class="blog-post">
+    <br> <br>
+    <div class="row">
+      <div class="col-md-8">
+
+        <app-bread [breads]="breads" *ngIf="breads"></app-bread>
+
+      </div>
+      <div class="col-md-8">
+
+        <div class="d-flex justify-content-between">
+          <input type="search" class="form-control" placeholder="🔎 Search by title" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <button type="submit" class="btn btn-primary" *ngIf="user && user.UserType !== ROLES[2].Name" style="margin: 0; margin-left: 1em;"
+            (click)="add()">Add</button>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <hr>
+    <br>
+
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card" *ngFor="let assignment of assignments; let i = index">
+          <h4 class="card-header">{{assignment.Tittle}}</h4>
+
+
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Created: {{assignment.CreateDate | date:'medium'}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted" *ngIf="assignment.DueDate">
+              Due: {{assignment.DueDate | date:'mediumDate'}}
+              <span *ngIf="assignment.DueTime">, <i class="far fa-clock"></i> {{assignment.DueTime}} </span>
+            </h6>
+            <br>
+            <h6 class="card-subtitle mb-2 text-muted" *ngIf="assignment.SubmitionsCount > 0 && user && user.UserType !== ROLES[2].Name">
+              {{assignment.SubmitionsCount}} submited </h6>
+            <a class="link link-success" *ngIf="assignment.SubmitionsCount > 0 && user && user.UserType !== ROLES[2].Name"
+              (click)="viewSubmissions(assignment)">View submissions  <i class="fas fa-check"></i></a>
+
+            <h6 class="card-subtitle mb-2 text-muted" *ngIf="assignment.SubmitionsCount == 0 && user && user.UserType !== ROLES[2].Name">No submissions yet</h6>
+            <div class="" [innerHtml]="assignment.assignmentView"></div>
+          </div>
+
+          <div class="card-footer">
+
+            <span *ngIf="user && user.UserType !== ROLES[2].Name">
+              <a class="btn btn-primary" (click)="view(assignment)">Edit</a>
+              <a class="btn btn-danger" (click)="onDeleteActionEvent(assignment)">Delete</a>
+            </span>
+
+            <span *ngIf="user && user.UserType === ROLES[2].Name">
+              <a *ngIf="!assignment.Submitions || !assignment.Submitions.length" class="btn btn-primary" (click)="view(assignment)">Attempt</a>
+              <a *ngIf="assignment.Submitions && assignment.Submitions.length" class="btn btn-success" (click)="viewSubmissions(assignment)">View results</a>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+</div>
+<p-toast position="top-right"></p-toast>
+
+
+<p-dialog [(visible)]="showAdd" [modal]="true" [styleClass]="modal" [draggable]="false" [resizable]="false">
+
+  <div class="row" *ngIf="assignment">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-dark text-white"><i class="fa fa-plus"></i> {{modalHeader}}
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="form-group">
+              <label for="name" style="text-transform: capitalize;">{{assignmentType}} Title</label>
+              <input type="text" [(ngModel)]="assignment.Tittle" class="form-control" id="name"
+                aria-describedby="emailHelp" required>
+            </div>
+
+
+
+            <div class="mx-auto">
+              <br>
+              <button type="submit" [disabled]="!assignment.Tittle" type="button" (click)="saveAssignment(assignment)"
+                class="btn btn-primary text-right">Continue to details</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="btn btn-dark" (click)="showAdd=false; saveAssignment(assignment)">Save</button>
+  </ng-template>
+</p-dialog>
+
+
+
+
+
+
+
+
+
+
+<div class="modal" *ngIf="selectedTopic">
+  <div class="card">
+    <h3>
+      Are you sure you want to delete this lesson?
+    </h3>
+
+    <button (click)="selectedTopic =  null">Do not delete</button>
+    <button class="yes" (click)="delete(selectedTopic)">Yes delete lesson</button>
+  </div>
+</div>
+
+<app-pop [message]="message" *ngIf="message"></app-pop>

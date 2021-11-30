@@ -1,0 +1,24 @@
+@import '../../../../../assets/styles/colors';
+.card {
+  margin-bottom: 2em;
+}
+
+
+.btn {
+  margin-right: 2em;
+}
+
+.marks-text {
+  text-align: left !important;
+  padding: .5em 0 !important;
+
+  span {
+    padding: 0 1em;
+    font-weight: 400;
+    color: $primary;
+  }
+}
+
+.chooses{
+    margin: 3em 0;
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="688" height="203" viewBox="0 0 688 203">
+  <g id="save" transform="translate(-698 -765)">
+    <g id="Rectangle_352" data-name="Rectangle 352" transform="translate(698 765)" fill="#09243f" stroke="#f2dc8a" stroke-width="5">
+      <rect width="688" height="203" rx="101.5" stroke="none"/>
+      <rect x="2.5" y="2.5" width="683" height="198" rx="99" fill="none"/>
+    </g>
+    <g id="mic_black_24dp" transform="translate(887.195 796)">
+      <g id="Group_2431" data-name="Group 2431">
+        <rect id="Rectangle_349" data-name="Rectangle 349" width="141" height="141" transform="translate(-0.195)" fill="none"/>
+        <rect id="Rectangle_350" data-name="Rectangle 350" width="141" height="141" transform="translate(-0.195)" fill="none"/>
+        <rect id="Rectangle_351" data-name="Rectangle 351" width="141" height="141" transform="translate(-0.195)" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_2434" data-name="Group 2434" transform="translate(857.004 819)">
+      <text id="Save_lesson" data-name="Save lesson" transform="translate(-30.004 73)" fill="#f2dc8a" font-size="69" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.065em"><tspan x="0" y="0">Save lesson</tspan></text>
+    </g>
+  </g>
+</svg>

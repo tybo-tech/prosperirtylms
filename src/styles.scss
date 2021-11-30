@@ -1,0 +1,250 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import './assets/styles/colors';
+
+@import '~quill/dist/quill.core.css';
+
+@import '~quill/dist/quill.bubble.css';
+
+@import '~quill/dist/quill.snow.css';
+
+@import './assets/styles/colors';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif !important;
+  background: $cloud !important;
+
+}
+
+a {
+  text-decoration: none !important;
+  color: $pop2;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+}
+
+
+// button {
+//   padding: .75em 2em;
+//   border: none;
+//   display: block;
+//   margin: 1em 0;
+//   font-size: .75em;
+//   line-height: 0;
+//   background: $primary;
+//   color: $pop;
+//   text-transform: capitalize;
+//   cursor: pointer;
+//   transition: .2s ease-in-out;
+//   font-weight: 500;
+
+//   &:hover {
+//     background: $primary-hover;
+//   }
+
+//   &:disabled {
+//     cursor: no-drop;
+//     background: rgb(128, 128, 128);
+//   }
+// }
+
+button{
+  border-radius: .5em !important;
+
+}
+.tertiary {
+  background: $white;
+  border: 2px solid $black;
+  color: $black;
+
+  &:hover {
+    background: rgb(241, 241, 241);
+  }
+
+}
+
+.btn-primary {
+  background: $primary !important;
+  color: $pop !important;
+}
+
+
+.btn-secondary {
+  background: $white !important;
+  border: 2px solid $primary !important;
+  color: $primary !important;
+}
+
+.container {
+  // background: $white;
+  // color: rgb(0, 0, 0);
+  // text-align: center;
+  // padding: 2em 8em;
+  // width: fit-content;
+  // margin: 2em auto;
+  // border-radius: .5em;
+
+  // p {
+  //   padding: 1em;
+  // }
+
+  // @media (min-width : 1050px) {
+  //   padding: 2em 30em;
+  // }
+
+  .form-item {
+    max-width: 30em;
+    margin: 1em auto;
+    padding: .5em;
+    // background: rgb(226, 226, 226);
+
+    label {
+      display: block;
+      text-align: left;
+    }
+
+  }
+}
+
+.container-dash {
+  width: 100%;
+  max-width: 60em;
+}
+
+
+input,
+select,
+textarea {
+  // display: block;
+  // width: 100%;
+  // background: rgb(238, 238, 238);
+  // padding: 1em;
+  // border: none;
+  // border: 1px solid rgb(235, 235, 235);
+  // padding: .5em 1em;
+  // border-radius: .35em;
+}
+
+.button-image {
+  display: grid;
+  grid-template-columns: 2.5em auto;
+  background: $primary;
+  width: fit-content;
+  padding: .5em 1em;
+  margin: .5em;
+  font-size: .8em;
+  color: $pop;
+  border-radius: .5em;
+  height: 2.8em;
+
+  img {
+    width: 1.75em !important;
+    top: 0 !important;
+  }
+
+  .sec {
+    font-weight: 500;
+    position: relative;
+    top: .2em;
+  }
+}
+
+
+.top-bar,
+.search {
+  margin: 1em auto;
+  display: grid;
+  grid-template-columns: 10em auto;
+  max-width: 60em;
+  padding: 2em 0;
+
+
+  h1 {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+}
+
+
+.chooses {
+  padding: 0;
+  width: 18em;
+  margin: 1em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 6em);
+  border: 2px solid $primary;
+  //   border-radius: .5em;
+
+  .choose {
+    text-align: center;
+    padding: .5em;
+    cursor: pointer;
+    // border-radius: .5em;
+
+  }
+
+  .active {
+    background: $primary;
+    color: $pop;
+  }
+}
+
+.chooses-2 {
+  grid-template-columns: repeat(2, 15em);
+  width: 30em;
+}
+
+.chooses-secondary {
+  border: 2px solid $grey;
+  color: $grey;
+
+  .active {
+    background: $grey;
+    color: $white;
+  }
+
+}
+
+
+h1 {
+  text-align: center !important;
+  padding: 1em !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+.pointer{
+  cursor: pointer;
+}
+
+
+.modal{
+  width: 30em !important;
+  height: auto !important;
+
+  @media only screen and (max-width: 600px) {
+   width: 90% !important;
+  }
+}

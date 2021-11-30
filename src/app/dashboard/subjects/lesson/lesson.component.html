@@ -1,0 +1,71 @@
+<app-bread [breads]="breads" *ngIf="breads"></app-bread>
+<input type="file" #file placeholder="Choose file" multiple (change)="onSelectFiles($event)"
+  style="display:none;position: fixed;">
+
+<div class="container container-dash" *ngIf="topic && user">
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Lesson title</label>
+    <input type="text" class="form-control" *ngIf="user.UserType === ROLES[1].Name" [(ngModel)]="topic.Name" placeholder="Tittle here">
+
+  </div>
+
+  <quill-editor [styles]="editorStyle" *ngIf="user.UserType === ROLES[1].Name" [modules]="editorConfig"
+    [(ngModel)]="topic.Description">
+  </quill-editor>
+
+  <div class="actions" *ngIf="user">
+    <div class="voices attaches">
+      <div class="voice" *ngFor="let voice of voices">
+        <audio controls *ngIf="voice.ContentType === VOICE">
+          <source [src]="voice.ContentBody" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+
+        <div class="file" *ngIf="voice.ContentType === FILE">
+          <a [href]="voice.ContentBody" target="_blank" rel="noopener noreferrer">
+            <!-- {{voice.ContentBody}} -->
+            View file
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions" *ngIf="user.UserType === ROLES[1].Name">
+    <div class="col">
+      <img src="assets/images/record.svg" (click)="showRecording = true" alt="">
+    </div>
+    <div class="col">
+      <img src="assets/images/file.svg" (click)="file.click()" alt="">
+    </div>
+    <div class="col">
+      <img src="assets/images/save.svg" (click)="formatBody(0)" alt="">
+    </div>
+
+  </div>
+
+
+  <div class="bar">
+    <app-voice-recoder *ngIf="showRecording" (doneRecording)="doneRecording($event)"></app-voice-recoder>
+
+  </div>
+
+
+</div>
+
+
+<div class="container container-dash" *ngIf="topic && user && user.UserType === ROLES[2].Name">
+
+  <div class="htmlBody" [innerHtml]="htmlBody"></div>
+
+  <div class="bar">
+    <app-voice-recoder *ngIf="showRecording" (doneRecording)="doneRecording($event)"></app-voice-recoder>
+  </div>
+
+
+</div>
+
+<app-comment *ngIf="topic && topic.CreateDate" [otherId]="topic.TopicId"></app-comment>
+<app-pop [message]="message" *ngIf="message"></app-pop>
+<p-toast position="top-right"></p-toast>

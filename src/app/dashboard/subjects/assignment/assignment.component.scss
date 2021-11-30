@@ -1,0 +1,51 @@
+@import '../../../../assets/styles/colors';
+
+.date {
+  font-size: .8em !important;
+  color: rgb(156, 156, 156);
+}
+
+.me-auto {
+  display: grid;
+  grid-template-columns: 3em auto;
+  padding: 1em;
+}
+
+.typedrop {
+  padding: 0;
+  font-size: .75em;
+  margin: 1em 0;
+  max-width: 20em;
+  font-weight: 600;
+  background: #fff;
+
+
+}
+
+
+.questions {
+  .question {
+    background: $glass;
+    padding: 1em;
+    border-radius: .333em;
+    margin: 1.5em auto;
+    box-shadow: $box-shadow;
+  }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 13em auto;
+  padding: 1em 0;
+  padding-top: 1.5em;
+
+  button {
+    width: fit-content;
+    display: block;
+    margin: 0;
+  }
+}
+
+a{
+  margin-right:1.5em;
+}

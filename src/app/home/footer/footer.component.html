@@ -1,0 +1,7 @@
+<br><br>
+<div class="footer" *ngIf="!user">
+  <a *ngFor="let item of items" (click)="showNav = false" routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{exact: true}" [routerLink]="item.Url">
+    {{item.Name}}
+  </a>
+</div>

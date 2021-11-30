@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="377" viewBox="0 0 1920 377">
+  <defs>
+    <clipPath id="clip-home-bg-pc">
+      <rect width="1920" height="377"/>
+    </clipPath>
+  </defs>
+  <g id="home-bg-pc" clip-path="url(#clip-home-bg-pc)">
+    <rect width="1920" height="377" fill="#38495a"/>
+  </g>
+</svg>

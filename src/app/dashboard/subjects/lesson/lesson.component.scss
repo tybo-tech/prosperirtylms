@@ -1,0 +1,93 @@
+@import '../../../../assets/styles/colors';
+
+.ql-editor {
+  img {
+    width: 90% !important;
+
+    @media only screen and (max-width: 600px) {
+      width: 100% !important;
+    }
+  }
+}
+
+iframe,
+.lesson-image {
+  width: 50% !important;
+  height: 30em !important;
+
+
+  @media only screen and (max-width: 600px) {
+    width: 100% !important;
+  }
+}
+
+.attaches {
+  display: flex;
+
+  // flex-wrap: wrap;
+  .voice {
+    margin: .4em;
+  }
+
+  a {
+    display: block;
+    width: 10em;
+    background: $white;
+    padding: 1em;
+    text-align: center;
+    border-radius: 6em;
+  }
+}
+
+.container {
+  padding: 1em;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.htmlBody {
+  background: $white;
+  padding: 2em;
+  margin: 1em auto;
+}
+
+input {
+  margin: 1em 0;
+  padding: 1.2em;
+  font-weight: 600;
+  font-size: 1em;
+  background: $white;
+}
+
+button {
+  margin: 1em 0;
+
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 7em);
+  padding: .4em 0;
+
+  .col {
+    text-align: left;
+    position: relative;
+  }
+
+  img {
+    width: 90%;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+
+  button {
+    margin: 0;
+    justify-self: end;
+    position: absolute;
+    right: 0;
+    bottom: .75em;
+  }
+}

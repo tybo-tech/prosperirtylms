@@ -1,0 +1,30 @@
+<app-banner-widget [heading]="' Contact us'"></app-banner-widget>
+
+<div class="container">
+
+  <div class="form-item">
+    <label for="">Your Name*</label>
+    <input type="text" [(ngModel)]="name" placeholder="Full names">
+  </div>
+
+  <div class="form-item">
+    <label for="">Your Email Address*</label>
+    <input type="email" [(ngModel)]="email" placeholder="Full names">
+  </div>
+
+  <div class="form-item">
+    <label for="">Your Contact Number*</label>
+    <input type="tel" [(ngModel)]="cell" placeholder="Full names">
+  </div>
+
+  <div class="form-item">
+    <label for="">Your Message*</label>
+    <textarea name=""[(ngModel)]="message"></textarea>
+  </div>
+
+
+  <br>
+  <div class="action">
+    <button>Send message</button>
+  </div>
+</div>

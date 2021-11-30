@@ -1,0 +1,18 @@
+<div class="atttt">
+  <div class="files" *ngIf="files">
+    <h4>
+      Attachments
+    </h4>
+    <br>
+    <span class="badge bg-dark" *ngFor="let item of files">
+      <a [href]="item.Url" target="_blank" rel="noopener noreferrer"><i class="far fa-file"></i> {{item.OptionId}}</a>
+    </span>
+  </div>
+  <input type="file" #file placeholder="Choose file" multiple (change)="onSelectFiles($event)"
+    style="display:none;position: fixed;">
+
+  <button *ngIf="canUpload" class="btn btn-light" (click)="file.click()">Attach files <i
+      class="fas fa-paperclip"></i></button>
+</div>
+
+<p-toast position="top-right"></p-toast>

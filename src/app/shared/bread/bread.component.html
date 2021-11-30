@@ -1,0 +1,26 @@
+<!-- <div class="breads" *ngIf="breads">
+  <div class="bread" *ngFor="let bread of breads" (click)="goto(bread.Link)">
+    <div class="col" *ngIf="bread.Icon">
+      <img [src]="bread.Icon" alt="">
+    </div>
+    <div class="col">
+      <p>
+        {{bread.Name}}
+      </p>
+    </div>
+  </div>
+</div> -->
+
+
+
+<nav aria-label="breadcrumb" *ngIf="breads">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let bread of breads">
+      <a [routerLink]="bread.Link" [innerHtml]="bread.Name">
+        
+      </a>
+    </li>
+    <!-- <li class="breadcrumb-item"><a [routerLink]="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li> -->
+  </ol>
+</nav>

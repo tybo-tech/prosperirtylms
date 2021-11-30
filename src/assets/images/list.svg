@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="528" height="528" viewBox="0 0 528 528">
+  <g id="list" transform="translate(-527 -784)">
+    <rect id="Rectangle_346" data-name="Rectangle 346" width="528" height="528" transform="translate(527 784)" fill="#fff"/>
+    <g id="list-2" data-name="list" transform="translate(-30 572)">
+      <g id="Rectangle_341" data-name="Rectangle 341" transform="translate(653 278)" fill="none" stroke="#09243f" stroke-width="16">
+        <rect width="336" height="436" rx="15" stroke="none"/>
+        <rect x="8" y="8" width="320" height="420" rx="7" fill="none"/>
+      </g>
+      <g id="Rectangle_343" data-name="Rectangle 343" transform="translate(689 359)" fill="none" stroke="#09243f" stroke-width="16">
+        <rect width="48" height="41" rx="15" stroke="none"/>
+        <rect x="8" y="8" width="32" height="25" rx="7" fill="none"/>
+      </g>
+      <g id="Rectangle_344" data-name="Rectangle 344" transform="translate(689 471)" fill="none" stroke="#09243f" stroke-width="16">
+        <rect width="48" height="40" rx="15" stroke="none"/>
+        <rect x="8" y="8" width="32" height="24" rx="7" fill="none"/>
+      </g>
+      <g id="Rectangle_345" data-name="Rectangle 345" transform="translate(689 574)" fill="none" stroke="#09243f" stroke-width="16">
+        <rect width="48" height="41" rx="15" stroke="none"/>
+        <rect x="8" y="8" width="32" height="25" rx="7" fill="none"/>
+      </g>
+      <line id="Line_5" data-name="Line 5" x2="159" transform="translate(766.5 391.5)" fill="none" stroke="#09243f" stroke-linecap="round" stroke-width="16"/>
+      <line id="Line_6" data-name="Line 6" x2="159" transform="translate(766.5 496)" fill="none" stroke="#09243f" stroke-linecap="round" stroke-width="16"/>
+      <line id="Line_7" data-name="Line 7" x2="159" transform="translate(766.5 600.5)" fill="none" stroke="#09243f" stroke-linecap="round" stroke-width="16"/>
+      <g id="Rectangle_342" data-name="Rectangle 342" transform="translate(728 239)" fill="#fff" stroke="#09243f" stroke-width="16">
+        <rect width="181" height="82" rx="15" stroke="none"/>
+        <rect x="8" y="8" width="165" height="66" rx="7" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

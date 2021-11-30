@@ -1,0 +1,191 @@
+<div class="container" *ngIf="studentAssignments">
+  <article class="blog-post">
+    <br> <br>
+    <div class="row">
+      <div class="col-md-8">
+
+        <app-bread [breads]="breads" *ngIf="breads"></app-bread>
+
+      </div>
+      <div class="col-md-8">
+
+        <div class="d-flex justify-content-between">
+          <input type="search" class="form-control" placeholder="🔎 Search by title" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+          <!-- <button type="submit" class="btn btn-primary" *ngIf="user && user.UserType !== ROLES[2].Name" style="margin: 0; margin-left: 1em;"
+            (click)="add()">Add</button> -->
+
+        </div>
+        <div class="d-flex justify-content-between">
+          <div class="chooses chooses-2">
+            <div class="choose" *ngFor="let item of SUBMISIONS_TABS" [ngClass]="item.Class" (click)="tab(item)">
+              {{item.Name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" *ngIf="canPublish" (click)="publish()">Publish marks for all</button>
+
+    <hr>
+    <br>
+
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card" *ngFor="let assignment of studentAssignments; let i = index">
+          <h4 class="card-header">{{assignment.User.Name}} {{assignment.User.Surname}}
+          </h4>
+
+
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Submited: <b>{{assignment.CreateDate | date:'medium'}}</b></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Attempt Number: <b>{{assignment.AttemptNumber}}</b></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Status: <b>{{assignment.AssignmentStatus}}</b></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Total Marks: <b>{{assignment.TotalMarks}}</b></h6>
+            <h1 class="card-subtitle mb-2 marks-text">
+              {{assignment.Marks}}/{{assignment.TotalMarks}} <span>({{assignment.PercentMarks}}%)</span>
+            </h1>
+            <!-- <h6 class="card-subtitle mb-2 text-muted" *ngIf="assignment.Marks > -1">Total score learners obtained:
+              {{assignment.Marks}}</h6> -->
+            <h6 class="card-subtitle mb-2 text-muted text-warn" *ngIf="assignment.Marks == -1">--Not marked yet--</h6>
+
+            <br>
+
+
+          </div>
+
+          <div class="card-footer">
+
+            <span>
+              <br>
+              <a class="btn btn-primary" *ngIf="!assignment.ShowMore" (click)="assignment.ShowMore = true">View
+                answers</a>
+              <a class="btn btn-secondary" *ngIf="assignment.ShowMore" (click)="assignment.ShowMore = false">Hide
+                answers</a>
+            </span>
+            <div class="">
+              <br>
+            </div>
+
+            <div class="">
+              <br>
+            </div>
+            <ol *ngIf="assignment.ShowMore" class="list-group list-group-numbered">
+
+              <li class="list-group-item d-flex justify-content-between align-items-start"
+                *ngFor="let answer of assignment.Answers; let j = index">
+                <div class=" me-auto">
+                  <div class="">
+                    <div [innerHtml]="answer.Question.Question"></div>
+                    <span class="badge bg-dark">{{answer.Question.Score}} Marks</span>
+
+                  </div>
+                  <br>
+                  <div class="alert alert-success" *ngIf="answer.IsCoorect == 'Correct answer'" role="alert"
+                    [innerHtml]="answer.Answer"></div>
+                  <div class="alert alert-danger" *ngIf="answer.IsCoorect == 'Incorrect answer'" role="alert"
+                    [innerHtml]="answer.Answer"></div>
+                  <div class="alert alert-secondary " *ngIf="answer.IsCoorect == 'Not marked'" role="alert"
+                    [innerHtml]="answer.Answer"></div>
+                </div>
+                <div class="">
+                  <select class="form-select" [(ngModel)]="answer.IsCoorect" [disabled] ="user.UserType !== ROLES[1].Name"
+                    (change)="saveAnswer(answer,assignment.Answers,assignment)">
+                    <option value="Correct answer">Correct</option>
+                    <option value="Incorrect answer">Incorrect</option>
+                    <option value="Not marked">Not marked</option>
+                  </select>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Marks Optained</label>
+                    <input type="number" class="form-control" id="exampleInputPassword1" [disabled] ="user.UserType !== ROLES[1].Name"
+                      [(ngModel)]="answer.GradeOptained"
+                      (change)="saveScoreAnswer(answer,assignment.Answers,assignment)">
+                  </div>
+
+                </div>
+              </li>
+            </ol>
+            <br>
+            <a class="btn btn-secondary" *ngIf="assignment.ShowMore" (click)="assignment.ShowMore = false">Hide
+              answers</a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+</div>
+
+<div class="container" *ngIf="!studentAssignments || !studentAssignments.length">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="alert alert-warning" role="alert">
+        No submissions found.
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<p-toast position="top-right"></p-toast>
+
+
+<p-dialog [(visible)]="showAdd" [modal]="true" [styleClass]="modal" [draggable]="false" [resizable]="false">
+
+  <div class="row" *ngIf="assignment">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-dark text-white"><i class="fa fa-plus"></i> {{modalHeader}}
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="form-group">
+              <label for="name" style="text-transform: capitalize;">{{assignmentType}} Title</label>
+              <input type="text" [(ngModel)]="assignment.Tittle" class="form-control" id="name"
+                aria-describedby="emailHelp" required>
+            </div>
+
+
+
+            <div class="mx-auto">
+              <br>
+              <button type="submit" [disabled]="!assignment.Tittle" type="button" (click)="saveAssignment(assignment)"
+                class="btn btn-primary text-right">Continue to details</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <ng-template pTemplate="footer">
+    <button class="btn btn-dark" (click)="showAdd=false; saveAssignment(assignment)">Save</button>
+  </ng-template>
+</p-dialog>
+
+
+
+
+
+
+
+
+
+
+<div class="modal" *ngIf="selectedTopic">
+  <div class="card">
+    <h3>
+      Are you sure you want to delete this lesson?
+    </h3>
+
+    <button (click)="selectedTopic =  null">Do not delete</button>
+    <button class="yes" (click)="delete(selectedTopic)">Yes delete lesson</button>
+  </div>
+</div>
+
+<app-pop [message]="message" *ngIf="message"></app-pop>
+<p-toast position="top-right"></p-toast>

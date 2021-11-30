@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="688" height="203" viewBox="0 0 688 203">
+  <g id="record" transform="translate(-785 -765)">
+    <g id="Rectangle_352" data-name="Rectangle 352" transform="translate(785 765)" fill="#efefef" stroke="#fe1313" stroke-width="5">
+      <rect width="688" height="203" rx="101.5" stroke="none"/>
+      <rect x="2.5" y="2.5" width="683" height="198" rx="99" fill="none"/>
+    </g>
+    <g id="mic_black_24dp" transform="translate(906.554 796)">
+      <g id="Group_2431" data-name="Group 2431">
+        <rect id="Rectangle_349" data-name="Rectangle 349" width="141" height="141" transform="translate(0.445)" fill="none"/>
+        <rect id="Rectangle_350" data-name="Rectangle 350" width="141" height="141" transform="translate(0.445)" fill="none"/>
+        <rect id="Rectangle_351" data-name="Rectangle 351" width="141" height="141" transform="translate(0.445)" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_2434" data-name="Group 2434" transform="translate(942.002 810)">
+      <g id="Group_2433" data-name="Group 2433">
+        <g id="Group_2432" data-name="Group 2432">
+          <path id="Path_310" data-name="Path 310" d="M26.687,72.747A17.663,17.663,0,0,0,44.374,55.06V19.687A17.687,17.687,0,0,0,9,19.687V55.06A17.663,17.663,0,0,0,26.687,72.747Z" transform="translate(14.582 -2)" fill="#fe1313"/>
+          <path id="Path_311" data-name="Path 311" d="M75.747,11a29.478,29.478,0,0,1-58.956,0H5A41.241,41.241,0,0,0,40.374,51.8V69.956H52.165V51.8A41.241,41.241,0,0,0,87.538,11Z" transform="translate(-5 42.06)" fill="#fe1313"/>
+        </g>
+      </g>
+      <text id="Record-2" data-name="Record" transform="translate(106.998 80)" fill="#fe1313" font-size="69" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.065em"><tspan x="0" y="0">Record</tspan></text>
+    </g>
+  </g>
+</svg>

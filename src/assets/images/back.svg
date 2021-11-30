@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="107" height="33" viewBox="0 0 107 33">
+  <g id="back" transform="translate(-227 -483)">
+    <path id="Path_309" data-name="Path 309" d="M5,0h97a5,5,0,0,1,5,5V28a5,5,0,0,1-5,5H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z" transform="translate(227 483)" fill="#fff"/>
+    <g id="Group_2430" data-name="Group 2430" transform="translate(-1.785 -1)">
+      <path id="Path_308" data-name="Path 308" d="M13.4,3.246,12.246,2.1,5.84,8.512l6.412,6.412L13.4,13.778,8.133,8.512Z" transform="translate(251.943 491.9)" fill="#09243f"/>
+      <text id="back-2" data-name="back" transform="translate(275 505)" fill="#09243f" font-size="12" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.065em"><tspan x="0" y="0">back</tspan></text>
+    </g>
+  </g>
+</svg>

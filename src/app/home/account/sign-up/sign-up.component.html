@@ -1,0 +1,59 @@
+<app-banner-widget [heading]="'Login to your account.'"></app-banner-widget>
+
+<div class="container" *ngIf="user">
+ 
+
+
+
+
+  <div class="card" style="max-width: 30em; margin: 2em auto;">
+    <div class="card-body">
+
+      <p style="padding: 0;">
+        Welcome to prosperity, Sign up as
+      </p>
+      <div class="chooses">
+        <div class="choose" *ngFor="let item of ROLES" [ngClass]="item.Class" (click)="goto(item)">
+          {{item.Name}}
+        </div>
+      </div>
+     
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control"  [(ngModel)]="user.Name" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Your Name*</label>
+      </div>
+
+
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control"  [(ngModel)]="user.Email" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Your Email*</label>
+      </div>
+
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control"  [(ngModel)]="user.Password" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Password*</label>
+      </div>
+
+
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control"  [(ngModel)]="user.CompanyName" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Your School Name*</label>
+      </div>
+
+
+     <br><br>
+     <div class="action">
+      <button (click)="save()" class="btn btn-primary">Login</button>
+  
+      <p class="error" *ngIf="error">
+        {{error}}
+      </p>
+  
+  <p>
+    Already have prosperity account? <a routerLink="/login">Sign in</a>  
+  </p>
+    </div>
+    </div>
+  </div>
+</div>

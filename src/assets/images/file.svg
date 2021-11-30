@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="688" height="203" viewBox="0 0 688 203">
+  <g id="file" transform="translate(-865 -636)">
+    <g id="Rectangle_352" data-name="Rectangle 352" transform="translate(865 636)" fill="#efefef" stroke="#09243f" stroke-width="5">
+      <rect width="688" height="203" rx="101.5" stroke="none"/>
+      <rect x="2.5" y="2.5" width="683" height="198" rx="99" fill="none"/>
+    </g>
+    <g id="Group_2435" data-name="Group 2435" transform="translate(1029.35 686)">
+      <text id="Attach" transform="translate(103.713 79.713)" fill="#09243f" font-size="69" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.065em"><tspan x="0" y="0">Attach</tspan></text>
+      <g id="attach_file_black_24dp">
+        <path id="Path_312" data-name="Path 312" d="M0,0H103.713V103.713H0Z" fill="none"/>
+        <path id="Path_313" data-name="Path 313" d="M48.053,22.607V72.3a17.285,17.285,0,0,1-34.571,0V18.285a10.8,10.8,0,1,1,21.607,0V63.66a4.321,4.321,0,1,1-8.643,0V22.607H19.964V63.66a10.8,10.8,0,1,0,21.607,0V18.285A17.285,17.285,0,1,0,7,18.285V72.3a23.768,23.768,0,0,0,47.535,0v-49.7Z" transform="translate(23.25 3.321)" fill="#09243f"/>
+      </g>
+    </g>
+  </g>
+</svg>
